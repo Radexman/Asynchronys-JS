@@ -1,13 +1,15 @@
-const changeText = () => {
-	document.querySelector('h1').textContent = 'Hello from callback';
-};
+// ========= 01 setTimeout & clearTimeout Function ========= //
 
-// setTimeout(changeText, 2000);
+setTimeout(function () {
+	console.log('Hello from callback');
+}, 2000);
 
-const timerId = setTimeout(changeText, 3000);
+console.log('Hello from top-level code');
 
-document.querySelector('#cancel').addEventListener('click', () => {
-	console.log(timerId);
-	clearTimeout(timerId);
-	console.log('Timer cancelled');
-});
+function changeText() {
+	document.querySelector('h1').textContent = 'Hello from the callback';
+}
+
+const timerID = setTimeout(changeText, 3000);
+
+clearTimeout(timerID);
