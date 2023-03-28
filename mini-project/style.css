@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: rgb(74, 99, 208);
+    background: linear-gradient(90deg, rgba(74, 99, 208, 1) 0%, rgba(72, 3, 235, 1) 100%);
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+
+.card {
+    border: 2px solid #000;
+    border-radius: .3em;
+    padding: 2rem 3rem;
+    width: 40vw;
+    height: 30vh;
+    background-color: rgba(161, 127, 255, 0.493);
+}
+
+.philosopher {
+    font-size: 3rem;
+}
+
+.quote {
+    font-size: 1.5rem;
+}
+
+button {
+    padding: .3em;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
