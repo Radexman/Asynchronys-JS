@@ -20,9 +20,9 @@ main {
 }
 
 .card {
-    width: 60%;
+    width: 85%;
     background-color: #fff;
-    margin-top: 10em;
+    margin-top: 5em;
     border-radius: 10px;
     display: flex;
     flex-flow: column nowrap;
