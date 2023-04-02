@@ -1,8 +1,9 @@
 //  ============ 09 Callback Promise Refactor =============  //
 
 const posts = [
-	{ title: 'Post One', body: 'This is post one' },
-	{ title: 'Post Two', body: 'This is post two' },
+	{ title: 'Post One', body: 'Post One Body' },
+	{ title: 'Post Two', body: 'Post Two Body' },
+	{ title: 'Post Three', body: 'Post Three Body' },
 ];
 
 function createPost(post, cb) {
@@ -14,7 +15,7 @@ function createPost(post, cb) {
 
 function getPosts() {
 	setTimeout(() => {
-		posts.forEach(function (post) {
+		posts.forEach((post) => {
 			const div = document.createElement('div');
 			div.innerHTML = `<strong>${post.title}</strong> - ${post.body}`;
 			document.querySelector('#posts').appendChild(div);
@@ -22,4 +23,4 @@ function getPosts() {
 	}, 1000);
 }
 
-createPost({ title: 'Post Three', body: 'This is post three' }, getPosts);
+createPost({ title: 'Post Four', body: 'Post Four Body' }, getPosts);
