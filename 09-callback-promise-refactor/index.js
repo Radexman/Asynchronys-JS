@@ -39,54 +39,54 @@
 
 // createPost({ title: 'Post Four', body: 'Post Four Body' }).then(getPosts).catch(showError);
 
-const getUserData = () => {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			console.log('1. Get user data');
-			resolve({ name: 'Emilia', id: 4 });
-		}, 800);
-	});
-};
+// const getUserData = () => {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log('1. Get user data');
+// 			resolve({ name: 'Emilia', id: 4 });
+// 		}, 800);
+// 	});
+// };
 
-const validateData = () => {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			// console.log('2. Validate');
-			// resolve();
-			reject('Something went wrong');
-		}, 900);
-	});
-};
-const registerUser = () => {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			console.log('3. Register');
-			resolve();
-		}, 400);
-	});
-};
-const sendEmail = () => {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			console.log('4. Send Email');
-			resolve('Email has been sent');
-		}, 200);
-	});
-};
+// const validateData = () => {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			// console.log('2. Validate');
+// 			// resolve();
+// 			reject('Something went wrong');
+// 		}, 900);
+// 	});
+// };
+// const registerUser = () => {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log('3. Register');
+// 			resolve();
+// 		}, 400);
+// 	});
+// };
+// const sendEmail = () => {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log('4. Send Email');
+// 			resolve('Email has been sent');
+// 		}, 200);
+// 	});
+// };
 
-getUserData()
-	.then((response) => {
-		console.log(`${response.name} id: ${response.id}`);
-	})
-	.then(validateData)
-	.then(registerUser)
-	.then(sendEmail)
-	.then((response) => {
-		console.log(response);
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+// getUserData()
+// 	.then((response) => {
+// 		console.log(`${response.name} id: ${response.id}`);
+// 	})
+// 	.then(validateData)
+// 	.then(registerUser)
+// 	.then(sendEmail)
+// 	.then((response) => {
+// 		console.log(response);
+// 	})
+// 	.catch((error) => {
+// 		console.log(error);
+// 	});
 
 // new Promise((resolve, reject) => {
 // 	setTimeout(() => {
@@ -102,3 +102,40 @@ getUserData()
 // 	.then((response) => {
 // 		console.log(response);
 // 	});
+
+const checkData = () => {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			let error = true;
+			console.log('Working on a task');
+
+			if (!error) {
+				resolve('This task is not so hard');
+			} else {
+				reject('This task was too hard');
+			}
+		}, 1000);
+	});
+};
+
+const taskDone = () => {
+	setTimeout(() => {
+		console.log('Task Finished Sucessfully');
+	}, 2000);
+};
+
+const taskFailed = () => {
+	setTimeout(() => {
+		console.log('Task Failed');
+	}, 2000);
+};
+
+checkData()
+	.then((result) => {
+		console.log(result);
+	})
+	.then(taskDone)
+	.catch((error) => {
+		taskFailed();
+		console.log(error);
+	});
