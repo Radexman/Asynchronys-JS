@@ -3,7 +3,7 @@ const promise = new Promise((resolve, reject) => {
 		let error = true;
 
 		if (!error) {
-			resolve('Everything went well');
+			resolve({ name: 'Emilia', age: '20' });
 		} else {
 			reject('Something went wrong');
 		}
@@ -13,7 +13,20 @@ const promise = new Promise((resolve, reject) => {
 promise
 	.then((result) => {
 		console.log(result);
+		return result.name;
+	})
+	.then((name) => {
+		console.log(name);
+		return name.length;
+	})
+	.then((length) => {
+		console.log(length);
 	})
 	.catch((error) => {
 		console.log(error);
+		return 123;
+	})
+	.then((x) => {
+		console.log(x);
+		console.log('This will run no matter what');
 	});
