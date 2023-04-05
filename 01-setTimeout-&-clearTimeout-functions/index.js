@@ -1,15 +1,13 @@
-// ========= 01 setTimeout & clearTimeout Function ========= //
+// // ========= 01 setTimeout & clearTimeout Function ========= //
 
-setTimeout(function () {
-	console.log('Hello from callback');
-}, 2000);
+const changeText = () => {
+	document.querySelector('h1').textContent = 'Hello from callback';
+};
 
-console.log('Hello from top-level code');
+const timerId = setTimeout(changeText, 3000);
 
-function changeText() {
-	document.querySelector('h1').textContent = 'Hello from the callback';
-}
-
-const timerID = setTimeout(changeText, 3000);
-
-clearTimeout(timerID);
+document.querySelector('#cancel').addEventListener('click', () => {
+	console.log(timerId);
+	clearTimeout(timerId);
+	console.log('Timeout canceled');
+});
