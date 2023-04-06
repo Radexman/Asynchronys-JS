@@ -9,7 +9,7 @@ const posts = [
 const createPost = (post) => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			let error = false;
+			let error = true;
 
 			if (!error) {
 				posts.push(post);
