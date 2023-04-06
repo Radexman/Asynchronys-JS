@@ -1,9 +1,8 @@
 // =========== 11 Promises vs Callback Hell =============== //
 
-function getData(endpoint) {
+const getData = (endpoint) => {
 	return new Promise((resolve, reject) => {
 		const xhr = new XMLHttpRequest();
-
 		xhr.open('GET', endpoint);
 
 		xhr.onreadystatechange = function () {
@@ -11,7 +10,7 @@ function getData(endpoint) {
 				if (this.status === 200) {
 					resolve(JSON.parse(this.responseText));
 				} else {
-					reject('Something went wrong');
+					reject('Error: Something went wrong');
 				}
 			}
 		};
@@ -20,7 +19,7 @@ function getData(endpoint) {
 			xhr.send();
 		}, Math.floor(Math.random() * 3000) + 1000);
 	});
-}
+};
 
 getData('movies.json')
 	.then((movies) => {
