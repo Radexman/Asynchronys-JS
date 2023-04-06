@@ -31,8 +31,11 @@ const getPosts = () => {
 	}, 1000);
 };
 
-const displayError = () => {
-	console.error('Error: something went wrong');
+const showError = (error) => {
+	const h2 = document.createElement('h2');
+	const h2Text = document.createTextNode(error);
+	h2.appendChild(h2Text);
+	document.querySelector('#posts').appendChild(h2);
 };
 
-createPost({ title: 'Post Four', body: 'Post four body' }).then(getPosts).catch(displayError);
+createPost({ title: 'Post Four', body: 'Post four body' }).then(getPosts).catch(showError);

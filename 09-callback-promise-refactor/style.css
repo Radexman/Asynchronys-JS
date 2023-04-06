@@ -7,6 +7,7 @@
 body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    color: #000;
 }
 
 #posts {
@@ -16,7 +17,7 @@ body {
 div {
     padding: 10px 25px;
     background-color: #333;
-    color: #eee;
+    color: #000;
     margin-block: 10px;
     border-radius: 2px;
 }
