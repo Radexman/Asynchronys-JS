@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#posts {
+    background-color: #fff;
+}
+
+div {
+    padding: 10px 25px;
+    background-color: #333;
+    color: #eee;
+    margin-block: 10px;
+    border-radius: 2px;
+}

@@ -1,141 +1,38 @@
 //  ============ 09 Callback Promise Refactor =============  //
 
-// const posts = [
-// 	{ title: 'Post One', body: 'Post One Body' },
-// 	{ title: 'Post Two', body: 'Post Two Body' },
-// 	{ title: 'Post Three', body: 'Post Three Body' },
-// ];
+const posts = [
+	{ title: 'Post One', body: 'Post one body' },
+	{ title: 'Post Two', body: 'Post two body' },
+	{ title: 'Post Three', body: 'Post three body' },
+];
 
-// const createPost = (post) => {
-// 	return new Promise((resolve, reject) => {
-// 		setTimeout(() => {
-// 			let error = false;
-
-// 			if (!error) {
-// 				posts.push(post);
-// 				resolve();
-// 			} else {
-// 				reject('Something went wrong');
-// 			}
-// 		}, 2000);
-// 	});
-// };
-
-// const getPosts = () => {
-// 	setTimeout(() => {
-// 		posts.forEach((post) => {
-// 			const div = document.createElement('div');
-// 			div.innerHTML = `<strong> ${post.title} </strong> - ${post.body}`;
-// 			document.querySelector('#posts').appendChild(div);
-// 		});
-// 	}, 1000);
-// };
-
-// const showError = (error) => {
-// 	const h3 = document.createElement('h3');
-// 	h3.innerHTML = `<strong> ${error} </strong>`;
-// 	document.getElementById('posts').appendChild(h3);
-// };
-
-// createPost({ title: 'Post Four', body: 'Post Four Body' }).then(getPosts).catch(showError);
-
-// const getUserData = () => {
-// 	return new Promise((resolve, reject) => {
-// 		setTimeout(() => {
-// 			console.log('1. Get user data');
-// 			resolve({ name: 'Emilia', id: 4 });
-// 		}, 800);
-// 	});
-// };
-
-// const validateData = () => {
-// 	return new Promise((resolve, reject) => {
-// 		setTimeout(() => {
-// 			// console.log('2. Validate');
-// 			// resolve();
-// 			reject('Something went wrong');
-// 		}, 900);
-// 	});
-// };
-// const registerUser = () => {
-// 	return new Promise((resolve, reject) => {
-// 		setTimeout(() => {
-// 			console.log('3. Register');
-// 			resolve();
-// 		}, 400);
-// 	});
-// };
-// const sendEmail = () => {
-// 	return new Promise((resolve, reject) => {
-// 		setTimeout(() => {
-// 			console.log('4. Send Email');
-// 			resolve('Email has been sent');
-// 		}, 200);
-// 	});
-// };
-
-// getUserData()
-// 	.then((response) => {
-// 		console.log(`${response.name} id: ${response.id}`);
-// 	})
-// 	.then(validateData)
-// 	.then(registerUser)
-// 	.then(sendEmail)
-// 	.then((response) => {
-// 		console.log(response);
-// 	})
-// 	.catch((error) => {
-// 		console.log(error);
-// 	});
-
-// new Promise((resolve, reject) => {
-// 	setTimeout(() => {
-// 		console.log('working...');
-// 		resolve(2);
-// 	}, 800);
-// })
-// 	.then((response) => {
-// 		console.log('End');
-// 		console.log(response);
-// 		return response * 2;
-// 	})
-// 	.then((response) => {
-// 		console.log(response);
-// 	});
-
-const checkData = () => {
+const createPost = (post) => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			let error = true;
-			console.log('Working on a task');
+			let error = false;
 
 			if (!error) {
-				resolve('This task is not so hard');
+				posts.push(post);
+				resolve();
 			} else {
-				reject('This task was too hard');
+				reject('Error: something went wrong');
 			}
-		}, 1000);
+		}, 2000);
 	});
 };
 
-const taskDone = () => {
+const getPosts = () => {
 	setTimeout(() => {
-		console.log('Task Finished Sucessfully');
-	}, 2000);
+		posts.forEach((post) => {
+			const div = document.createElement('div');
+			div.innerHTML = `<strong> ${post.title} </strong> - ${post.body}`;
+			document.querySelector('#posts').appendChild(div);
+		});
+	}, 1000);
 };
 
-const taskFailed = () => {
-	setTimeout(() => {
-		console.log('Task Failed');
-	}, 2000);
+const displayError = () => {
+	console.error('Error: something went wrong');
 };
 
-checkData()
-	.then((result) => {
-		console.log(result);
-	})
-	.then(taskDone)
-	.catch((error) => {
-		taskFailed();
-		console.log(error);
-	});
+createPost({ title: 'Post Four', body: 'Post four body' }).then(getPosts).catch(displayError);
