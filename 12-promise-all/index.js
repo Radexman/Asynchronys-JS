@@ -25,10 +25,12 @@ const moviesPromise = getData('movies.json');
 const actorsPromise = getData('actors.json');
 const directorsPromise = getData('directors.json');
 
-Promise.all([moviesPromise, actorsPromise, directorsPromise])
-	.then((data) => {
-		console.log(data);
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+const dummyPromise = new Promise((resolve, reject) => {
+	setTimeout(() => {
+		resolve('This is a dummy promise');
+	}, 1000);
+});
+
+Promise.all([moviesPromise, actorsPromise, directorsPromise, dummyPromise])
+	.then((data) => console.log(data))
+	.catch((error) => console.log(error));
